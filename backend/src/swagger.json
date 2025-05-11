@@ -1,0 +1,234 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Expense Tracker API",
+        "description": "API documentation for the Expense Tracker application"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "Enter your Bearer token in the format: Bearer <token>"
+        }
+    },
+    "paths": {
+        "/api/auth/register": {
+            "post": {
+                "summary": "Register a new user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User registered successfully"
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "summary": "Login a user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful login",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "token": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/expenses": {
+            "get": {
+                "summary": "Get all expenses",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of expenses"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new expense",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                },
+                                "amount": {
+                                    "type": "number"
+                                },
+                                "category": {
+                                    "type": "string"
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Expense created successfully"
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/expenses/{id}": {
+            "put": {
+                "summary": "Update an expense",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                },
+                                "amount": {
+                                    "type": "number"
+                                },
+                                "category": {
+                                    "type": "string"
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expense updated successfully"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Expense not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an expense",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expense deleted successfully"
+                    },
+                    "404": {
+                        "description": "Expense not found"
+                    }
+                }
+            }
+        }
+    }
+}
