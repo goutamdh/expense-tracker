@@ -1,5 +1,13 @@
 # Expense Tracker
 
+## Requirements
+
+- **Node.js**: v18.x or later (recommended)
+- **npm**: v9.x or later (comes with Node.js)
+- **(Optional) SQLite3 CLI**: For inspecting the database
+
+---
+
 ## Project Folder Structure
 
 ```
@@ -50,16 +58,27 @@ expense-tracker/
 
 ---
 
-## Development Setup
+## Environment Setup
 
-### 1. Clone the Repository
+### 1. Install Node.js
+
+Download and install Node.js (v18.x or later) from [nodejs.org](https://nodejs.org/).
+
+Check your versions:
+
+```sh
+node -v
+npm -v
+```
+
+### 2. Clone the Repository
 
 ```sh
 git clone https://github.com/your-username/expense-tracker.git
 cd expense-tracker
 ```
 
-### 2. Install Dependencies
+### 3. Install Dependencies
 
 #### Backend
 
@@ -139,3 +158,5 @@ npm test
 
 - API docs: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 - Update environment variables as needed in `.env` files.
+- Backend dependencies and versions are listed in `backend/package.json`.
+- Frontend dependencies and versions are listed in `frontend/package.json`.
