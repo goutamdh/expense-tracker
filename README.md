@@ -1,6 +1,9 @@
 # Expense Tracker
 
 ## Project Folder Structure
+
+```
+expense-tracker/
 ├── backend/
 │   ├── src/
 │   │   ├── config/
@@ -14,6 +17,8 @@
 │   │   ├── app.js
 │   │   ├── swagger.json
 │   │   └── server.js
+│   ├── package.json
+│   └── jest.config.js
 ├── frontend/
 │   ├── src/
 │   │   ├── app/
@@ -23,11 +28,12 @@
 │   │   │   ├── auth/
 │   │   │   ├── expenses/
 │   │   │   └── dashboard/
-│   ├── jest.config.js
 │   ├── angular.json
-│   └── package.json
+│   ├── package.json
+│   └── jest.config.js
+├── .gitignore
 ├── README.md
-└── .gitignore
+```
 
 ---
 
