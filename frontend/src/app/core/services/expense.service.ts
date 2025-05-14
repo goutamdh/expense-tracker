@@ -1,11 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { map } from "rxjs";
 
-@Injectable({ 
-    providedIn: 'root' 
+@Injectable({
+    providedIn: 'root'
 })
 export class ExpenseService {
-    private baseUrl = '/api/expenses';
+    private baseUrl = 'http://localhost:3000/api/expenses';
 
     constructor(private http: HttpClient) { }
 
@@ -14,7 +15,9 @@ export class ExpenseService {
     }
 
     getAll() {
-        return this.http.get(this.baseUrl);
+        return this.http.get<{ success: boolean, data: any[] }>(this.baseUrl).pipe(
+            map(res => res.data)
+        );
     }
 
     update(id: string, expense: any) {

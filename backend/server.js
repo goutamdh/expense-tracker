@@ -11,7 +11,6 @@ const io = new Server(server, {
     }
 });
 
-// WebSocket: Track Online Users
 const onlineUsers = new Set();
 
 io.on('connection', (socket) => {

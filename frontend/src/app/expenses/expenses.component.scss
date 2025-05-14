@@ -1,0 +1,40 @@
+.form-card {
+    margin-bottom: 24px;
+  
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+  
+      .btn-group {
+        grid-column: span 3;
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+      }
+    }
+  }
+  
+  .list-card {
+    table {
+      width: 100%;
+    }
+  
+    th, td {
+      padding: 12px 8px;
+    }
+  
+    button {
+      margin-right: 4px;
+    }
+  }
+
+  .filter-card {
+    margin-bottom: 16px;
+  }
+  .filter-form {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }

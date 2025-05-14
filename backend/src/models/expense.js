@@ -1,4 +1,3 @@
-// filepath: /D:/Nodejs/expense-tracker/backend/src/models/expense.js
 module.exports = (sequelize, DataTypes) => {
     const Expense = sequelize.define('Expense', {
         id: {
@@ -6,7 +5,15 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        category: {
             type: DataTypes.STRING,
             allowNull: false,
         },

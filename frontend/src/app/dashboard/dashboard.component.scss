@@ -1,0 +1,28 @@
+.dashboard-summary {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #e3f2fd;
+  }
+  
+  .dashboard-users {
+    margin-bottom: 16px;
+  
+    ul {
+      padding-left: 20px;
+      li {
+        margin-bottom: 4px;
+      }
+    }
+  }
+  
+  .dashboard-list {
+    table {
+      width: 100%;
+    }
+  
+    th, td {
+      padding: 8px;
+    }
+  }
+  
